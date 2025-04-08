@@ -26,12 +26,11 @@ export default function RoastPage() {
             profile.
           </p>
           <Image
-            src="/roast-levels.png"
-            alt="Different coffee roast levels from light to dark"
-            className={styles.featureImage}
+            src="/coffee-roasts.png"
+            alt="Different coffee roast levels and their characteristics"
+            className={styles.roastImage}
             width={600}
             height={400}
-            priority
           />
         </section>
 
@@ -46,13 +45,7 @@ export default function RoastPage() {
             body and bitterness, allowing roasters to highlight different
             characteristics in each bean.
           </p>
-          <Image
-            src="/coffee-roasts.png"
-            alt="Different coffee roast levels and their characteristics"
-            className={styles.roastImage}
-            width={600}
-            height={400}
-          />
+
         </section>
 
         <section className={styles.section}>

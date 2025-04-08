@@ -28,21 +28,14 @@ export default function FlavourProfilesPage() {
             level transforms these inherent qualities, while your chosen brewing
             method determines how these flavours are extracted into your cup.
           </p>
-          <Image
-            src="/flavour-profile.png"
-            alt="Coffee flavor profile categories showing Fruity (Citrus), Floral (Jasmine), Chocolatey (Nutty), Spicy (Earthy), Nutty (Berry), and Earthy flavors"
-            className={styles.categoryImage}
-            width={600}
-            height={400}
-            priority
-          />
-          <Image
-            src="/flavour-wheel.png"
-            alt="Coffee flavour wheel showing different taste profiles"
-            className={styles.flavorImage}
-            width={600}
-            height={400}
-          />
+            <Image
+              src="/flavour-profile.png"
+              alt="Coffee flavor profile categories showing Fruity (Citrus), Floral (Jasmine), Chocolatey (Nutty), Spicy (Earthy), Nutty (Berry), and Earthy flavors"
+              className={styles.categoryImage}
+              width={600}
+              height={400}
+              priority
+            />
         </section>
 
         <section className={styles.section}>

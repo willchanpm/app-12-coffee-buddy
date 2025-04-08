@@ -25,14 +25,16 @@ export default function OriginsPage() {
             altitude, climate, and soil creates distinct flavor characteristics
             in the beans.
           </p>
-          <Image
-            src="/coffee-origins.png"
-            alt="Map showing major coffee growing regions and their characteristics"
-            className={styles.featureImage}
-            width={600}
-            height={400}
-            priority
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              src="/coffee-bean-origins.png"
+              alt="Map showing major coffee growing regions and their characteristics"
+              className={styles.categoryImage}
+              width={600}
+              height={400}
+              priority
+            />
+          </div>
         </section>
 
         <section className={styles.section}>

@@ -24,14 +24,16 @@ export default function BrewMethodsPage() {
             these interact helps you choose the right method for your taste
             preferences.
           </p>
-          <Image
-            src="/brewing-methods.png"
-            alt="Different coffee brewing methods and their characteristics"
-            className={styles.featureImage}
-            width={600}
-            height={400}
-            priority
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              src="/brew-methods.png"
+              alt="Different coffee brewing methods and their characteristics"
+              className={styles.categoryImage}
+              width={600}
+              height={400}
+              priority
+            />
+          </div>
         </section>
 
         <section className={styles.section}>
