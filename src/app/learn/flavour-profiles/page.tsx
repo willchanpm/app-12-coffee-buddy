@@ -1,4 +1,5 @@
 import styles from "./flavour-profiles.module.css";
+import Image from "next/image";
 
 export default function FlavourProfilesPage() {
   return (
@@ -10,7 +11,7 @@ export default function FlavourProfilesPage() {
         <h1>Coffee Flavour Profiles</h1>
         <p className={styles.intro}>
           Discover the diverse world of coffee flavours and learn what shapes
-          your cup's taste
+          your cup&apos;s taste
         </p>
       </header>
 
@@ -18,19 +19,29 @@ export default function FlavourProfilesPage() {
         <section className={styles.section}>
           <h2>What Affects Flavour?</h2>
           <p>
-            Coffee's complex flavour profile is influenced by multiple factors
-            throughout its journey from seed to cup. The origin of the beans
-            plays a crucial role, with different regions producing distinct
-            taste characteristics due to their unique soil, climate, and
-            altitude. The processing method - whether natural, washed, or honey
-            - significantly impacts the final flavour development. Roast level
-            transforms these inherent qualities, while your chosen brewing
+            Coffee&apos;s complex flavour profile is influenced by multiple
+            factors throughout its journey from seed to cup. The origin of the
+            beans plays a crucial role, with different regions producing
+            distinct taste characteristics due to their unique soil, climate,
+            and altitude. The processing method - whether natural, washed, or
+            honey - significantly impacts the final flavour development. Roast
+            level transforms these inherent qualities, while your chosen brewing
             method determines how these flavours are extracted into your cup.
           </p>
-          <img
+          <Image
             src="/flavour-profile.png"
             alt="Coffee flavor profile categories showing Fruity (Citrus), Floral (Jasmine), Chocolatey (Nutty), Spicy (Earthy), Nutty (Berry), and Earthy flavors"
             className={styles.categoryImage}
+            width={600}
+            height={400}
+            priority
+          />
+          <Image
+            src="/flavour-wheel.png"
+            alt="Coffee flavour wheel showing different taste profiles"
+            className={styles.flavorImage}
+            width={600}
+            height={400}
           />
         </section>
 
@@ -101,8 +112,8 @@ export default function FlavourProfilesPage() {
             taste across different origins and roast levels. Try cupping
             sessions or guided tastings at local roasteries. Take notes on what
             you enjoy and look for patterns in your preferences. Remember that
-            taste is subjective - there's no wrong choice as long as you enjoy
-            what's in your cup. Consider starting with medium roasts from Brazil
+            taste is subjective - there&apos;s no wrong choice as long as you enjoy
+            what&apos;s in your cup. Consider starting with medium roasts from Brazil
             or Colombia as a baseline, then explore lighter or darker profiles
             to discover your perfect cup.
           </p>

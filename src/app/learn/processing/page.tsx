@@ -1,4 +1,5 @@
 import styles from "./processing.module.css";
+import Image from "next/image";
 
 export default function ProcessingPage() {
   return (
@@ -26,10 +27,13 @@ export default function ProcessingPage() {
             certain characteristics while minimizing others, giving roasters and
             coffee lovers more options for their perfect cup.
           </p>
-          <img
+          <Image
             src="/processing-methods.png"
             alt="Different coffee processing methods and their effects on flavor"
             className={styles.processingImage}
+            width={600}
+            height={400}
+            priority
           />
         </section>
 
@@ -52,11 +56,11 @@ export default function ProcessingPage() {
             <h3>Washed Process</h3>
             <p>
               The washed (wet) process removes all fruit before drying,
-              resulting in coffee that clearly expresses the bean's inherent
-              characteristics. This method typically produces cleaner, brighter
-              flavors with pronounced acidity and clarity. Washed coffees often
-              showcase floral notes, citrus brightness, and tea-like clarity
-              with a crisp, clean finish.
+              resulting in coffee that clearly expresses the bean&apos;s
+              inherent characteristics. This method typically produces cleaner,
+              brighter flavors with pronounced acidity and clarity. Washed
+              coffees often showcase floral notes, citrus brightness, and
+              tea-like clarity with a crisp, clean finish.
             </p>
           </div>
 
@@ -139,13 +143,13 @@ export default function ProcessingPage() {
           <p>
             Your choice of processing method should align with your taste
             preferences and coffee adventure level. For clean, predictable
-            flavors that showcase the bean's origin characteristics, opt for
-            washed coffees. Natural processed beans offer bold, fruity profiles
-            perfect for those who enjoy wine-like complexity. Honey process
-            provides a middle ground with balanced sweetness and clarity.
-            Experimental methods are ideal for adventurous coffee enthusiasts
-            seeking unique and intense flavor experiences — but be prepared for
-            surprising and sometimes challenging cup profiles.
+            flavors that showcase the bean&apos;s origin characteristics, opt
+            for washed coffees. Natural processed beans offer bold, fruity
+            profiles perfect for those who enjoy wine-like complexity. Honey
+            process provides a middle ground with balanced sweetness and
+            clarity. Experimental methods are ideal for adventurous coffee
+            enthusiasts seeking unique and intense flavor experiences — but be
+            prepared for surprising and sometimes challenging cup profiles.
           </p>
         </section>
       </main>

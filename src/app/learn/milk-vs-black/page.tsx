@@ -1,4 +1,5 @@
 import styles from "./milk-vs-black.module.css";
+import Image from "next/image";
 
 export default function MilkVsBlackPage() {
   return (
@@ -20,17 +21,21 @@ export default function MilkVsBlackPage() {
           <p>
             Adding milk to coffee creates a complex transformation of flavors
             and textures. Milk proteins and fats act as natural smoothing
-            agents, softening the coffee's acidity and creating a more rounded
-            mouthfeel. While this can make coffee more approachable, it can also
-            mask some of the more delicate flavor notes, particularly in lighter
-            roasts. Different types of milk - from whole dairy to alternatives
-            like oat, almond, or soy - each bring their own characteristics to
-            the cup, influencing both taste and texture in unique ways.
+            agents, softening the coffee&apos;s acidity and creating a more
+            rounded mouthfeel. While this can make coffee more approachable, it
+            can also mask some of the more delicate flavor notes, particularly
+            in lighter roasts. Different types of milk - from whole dairy to
+            alternatives like oat, almond, or soy - each bring their own
+            characteristics to the cup, influencing both taste and texture in
+            unique ways.
           </p>
-          <img
+          <Image
             src="/milk-vs-black.png"
-            alt="Visual comparison of milk and black coffee styles with their characteristic flavors"
+            alt="Visual comparison of milk and black coffee styles"
             className={styles.featureImage}
+            width={600}
+            height={400}
+            priority
           />
         </section>
 
@@ -38,30 +43,31 @@ export default function MilkVsBlackPage() {
           <h2>Best Beans for Milk</h2>
           <p>
             When choosing coffee to pair with milk, look for beans and roasts
-            that can stand up to dairy's mellowing effects. Medium to dark
+            that can stand up to dairy&apos;s mellowing effects. Medium to dark
             roasted beans from Brazil and Colombia are excellent choices, as
             their pronounced chocolatey and nutty notes remain distinct even
             when mixed with milk. These origins often produce coffees with
             robust body and lower acidity, creating a harmonious blend with
-            milk's creamy texture. Espresso blends are specifically crafted with
-            milk drinks in mind, typically featuring a combination of beans that
-            maintain their character while complementing milk's natural
-            sweetness.
+            milk&apos;s creamy texture. Espresso blends are specifically crafted
+            with milk drinks in mind, typically featuring a combination of beans
+            that maintain their character while complementing milk&apos;s
+            natural sweetness.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>Best Beans for Black</h2>
           <p>
-            Black coffee allows the full spectrum of a bean's characteristics to
-            shine through. Light to medium roasts from Ethiopian and Kenyan
-            origins are particularly celebrated when served black, as their
-            bright, complex profiles can be fully appreciated. These beans often
-            feature vibrant fruit notes, floral aromatics, and a wine-like
-            acidity that would otherwise be muted by milk. Single-origin beans
-            from these regions tell a unique story of their terroir through
-            distinct flavor notes - from Ethiopian Yirgacheffe's jasmine and
-            bergamot to Kenyan AA's blackcurrant and citrus highlights.
+            Black coffee allows the full spectrum of a bean&apos;s
+            characteristics to shine through. Light to medium roasts from
+            Ethiopian and Kenyan origins are particularly celebrated when served
+            black, as their bright, complex profiles can be fully appreciated.
+            These beans often feature vibrant fruit notes, floral aromatics, and
+            a wine-like acidity that would otherwise be muted by milk.
+            Single-origin beans from these regions tell a unique story of their
+            terroir through distinct flavor notes - from Ethiopian
+            Yirgacheffe&apos;s jasmine and bergamot to Kenyan AA&apos;s
+            blackcurrant and citrus highlights.
           </p>
         </section>
 
@@ -71,8 +77,8 @@ export default function MilkVsBlackPage() {
             <h3>Dairy Milk</h3>
             <p>
               Traditional dairy milk offers a naturally creamy texture and
-              subtle sweetness that perfectly balances coffee's bitterness. Its
-              protein content and fat structure make it especially good for
+              subtle sweetness that perfectly balances coffee&apos;s bitterness.
+              Its protein content and fat structure make it especially good for
               espresso-based drinks, creating silky microfoam and enhancing the
               overall mouthfeel.
             </p>
@@ -106,9 +112,9 @@ export default function MilkVsBlackPage() {
             <p>
               With its distinctive nutty flavor and thinner consistency, almond
               milk can add an interesting dimension to coffee drinks. However,
-              its lower fat content and potential to clash with coffee's natural
-              acidity means it may not perform as well in hot beverages or with
-              particularly acidic coffee varieties.
+              its lower fat content and potential to clash with coffee&apos;s
+              natural acidity means it may not perform as well in hot beverages
+              or with particularly acidic coffee varieties.
             </p>
           </div>
 
@@ -118,14 +124,14 @@ export default function MilkVsBlackPage() {
               Coconut milk brings a unique tropical note to coffee drinks and
               works particularly well in iced or flavored beverages. Its rich,
               creamy texture can enhance certain coffee styles, though its
-              distinctive flavor may not suit all taste preferences. It's
+              distinctive flavor may not suit all taste preferences. It&apos;s
               especially popular in cold brew and specialty drinks.
             </p>
           </div>
 
           <p className={styles.note}>
             For the best results when making milk-based coffee drinks at home,
-            look for "barista" versions of plant-based milks. These are
+            look for &quot;barista&quot; versions of plant-based milks. These are
             specifically formulated to steam better, create smoother microfoam,
             and resist separation when mixed with hot coffee.
           </p>

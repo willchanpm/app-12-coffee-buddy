@@ -1,4 +1,5 @@
 import styles from "./learn.module.css";
+import Link from "next/link";
 
 interface LearnSection {
   title: string;
@@ -48,9 +49,9 @@ export default function LearnPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <a href="/" className={styles.backLink}>
+        <Link href="/" className={styles.backLink}>
           ← Back to Home
-        </a>
+        </Link>
         <h1>Coffee Knowledge Hub</h1>
         <p className={styles.intro}>
           Explore the world of coffee — learn about beans, brew methods, flavour

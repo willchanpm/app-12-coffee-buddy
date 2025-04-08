@@ -1,4 +1,5 @@
 import styles from "./origins.module.css";
+import Image from "next/image";
 
 export default function OriginsPage() {
   return (
@@ -9,135 +10,89 @@ export default function OriginsPage() {
         </a>
         <h1>Coffee Bean Origins</h1>
         <p className={styles.intro}>
-          Discover how different growing regions create distinct coffee flavors
+          Discover how different growing regions shape coffee&apos;s taste and
+          character. Each origin&apos;s unique climate, soil, and altitude
+          create distinct flavor profiles.
         </p>
       </header>
 
       <main className={styles.content}>
         <section className={styles.section}>
-          <h2>Introduction to Origins</h2>
+          <h2>Understanding Origins</h2>
           <p>
-            The flavor of coffee beans is deeply influenced by where they're
-            grown. Geographic factors like altitude, soil composition, and
-            climate all play crucial roles in developing the bean's
-            characteristics. Higher altitudes typically produce harder, more
-            complex beans with brighter acidity, while different soil types can
-            contribute unique mineral notes to the final cup.
+            Coffee grows in the &quot;bean belt&quot; between the Tropics of
+            Cancer and Capricorn. Each region&apos;s unique combination of
+            altitude, climate, and soil creates distinct flavor characteristics
+            in the beans.
           </p>
-          <img
-            src="/coffee-bean-origins.png"
-            alt="Map showing major coffee growing regions and their characteristic flavors"
-            className={styles.originImage}
+          <Image
+            src="/coffee-origins.png"
+            alt="Map showing major coffee growing regions and their characteristics"
+            className={styles.featureImage}
+            width={600}
+            height={400}
+            priority
           />
         </section>
 
         <section className={styles.section}>
-          <h2>Common Origins</h2>
+          <h2>Major Growing Regions</h2>
 
           <div className={styles.origin}>
-            <h3>Ethiopian Coffee</h3>
+            <h3>Ethiopia</h3>
             <p>
-              Known as the birthplace of coffee, Ethiopia produces beans with
-              distinctive fruity and floral characteristics. These coffees often
-              feature bright, complex flavors with notes of jasmine, bergamot,
-              and blueberry. The diverse growing regions and traditional
-              processing methods contribute to their unique taste profile.
+              The birthplace of coffee, Ethiopia produces beans with bright,
+              complex flavors. High altitudes and diverse heirloom varieties
+              create distinctive profiles featuring floral notes, bright
+              acidity, and berry or wine-like qualities. Ethiopia&apos;s natural
+              processing tradition adds fruit-forward sweetness to many of its
+              coffees.
             </p>
           </div>
 
           <div className={styles.origin}>
-            <h3>Kenyan Coffee</h3>
+            <h3>Colombia</h3>
             <p>
-              Kenyan coffee is renowned for its bold, wine-like acidity and
-              complex fruit notes. These beans often exhibit bright blackcurrant
-              and berry flavors, complemented by a sweet, almost tomato-like
-              savory quality. Kenya's strict grading system and unique
-              processing methods help maintain its reputation for exceptional
-              quality.
+              Colombian coffee is known for its balanced profile and consistent
+              quality. The country&apos;s varied microclimates produce beans
+              with medium body, caramel sweetness, and subtle fruit notes.
+              Careful processing and strict quality controls help maintain
+              Colombia&apos;s reputation for excellence.
             </p>
           </div>
 
           <div className={styles.origin}>
-            <h3>Colombian Coffee</h3>
+            <h3>Brazil</h3>
             <p>
-              Colombian beans are celebrated for their well-balanced, clean
-              taste with caramel sweetness and nutty undertones. Growing at high
-              altitudes in volcanic soil, these beans develop a medium body with
-              hints of chocolate and a subtle citrus brightness that makes them
-              universally appealing.
+              As the world&apos;s largest coffee producer, Brazil offers a wide
+              range of flavors. Lower-altitude growing regions typically produce
+              full-bodied coffees with chocolate and nut notes, low acidity, and
+              excellent sweetness. These characteristics make Brazilian beans
+              perfect for espresso blends.
             </p>
           </div>
 
           <div className={styles.origin}>
-            <h3>Brazilian Coffee</h3>
+            <h3>Guatemala</h3>
             <p>
-              Brazil's coffee is known for its smooth, sweet flavor with
-              pronounced chocolate notes and low acidity. These beans often have
-              a heavy body with nutty, caramel characteristics, making them
-              perfect for espresso blends. The lower growing altitudes and
-              natural processing methods contribute to their mellow profile.
-            </p>
-          </div>
-
-          <div className={styles.origin}>
-            <h3>Burundi Coffee</h3>
-            <p>
-              Coffee from Burundi offers a unique combination of bright citrus
-              acidity and deep, wine-like sweetness. These beans typically
-              feature complex flavors of red fruit, orange, and honey, with a
-              silky body and clean finish. The high-altitude growing conditions
-              and careful processing create a distinguished cup profile.
-            </p>
-          </div>
-
-          <div className={styles.origin}>
-            <h3>Panamanian Geisha</h3>
-            <p>
-              Panama's Geisha coffee, particularly from the Boquete region, is
-              among the world's most sought-after varieties. Known for its
-              intensely floral aroma, delicate jasmine notes, and bergamot
-              characteristics reminiscent of Earl Grey tea. These exceptional
-              beans also feature complex layers of citrus and tropical fruit
-              flavors.
-            </p>
-          </div>
-
-          <div className={styles.origin}>
-            <h3>El Salvador Coffee</h3>
-            <p>
-              El Salvador produces coffee with a distinctive honey-like
-              sweetness and smooth, medium body. These beans often display notes
-              of apple, apricot, and chocolate, with a gentle citrus acidity.
-              The country's Bourbon and Pacamara varieties are particularly
-              celebrated for their complex flavor profiles.
-            </p>
-          </div>
-
-          <div className={styles.origin}>
-            <h3>Honduras Coffee</h3>
-            <p>
-              Honduran coffee offers a balanced profile with sweet chocolate
-              notes and subtle fruit undertones. Growing at high altitudes,
-              these beans develop a creamy body with flavors of caramel and
-              vanilla, complemented by a gentle citrus brightness. The country's
-              diverse growing regions produce beans with varying
-              characteristics.
+              Guatemalan coffee is grown at high altitudes in volcanic soil,
+              producing complex cups with bright acidity and full body.
+              Different regions offer distinct profiles, from spicy and smoky to
+              floral and fruity. The country&apos;s varied microclimates create
+              eight distinct coffee-growing regions.
             </p>
           </div>
         </section>
 
         <section className={styles.section}>
-          <h2>Choosing by Origin</h2>
+          <h2>How Geography Affects Flavor</h2>
           <p>
-            When selecting coffee by origin, consider your flavor preferences:
-            Choose Ethiopian or Kenyan beans for bright, complex flavors with
-            high acidity. Colombian or Honduran coffee offers a balanced,
-            approachable profile. Brazilian beans are perfect for those who love
-            smooth, chocolatey notes or prefer low-acid coffee. For unique
-            experiences, try Panamanian Geisha for floral complexity or Burundi
-            for wine-like characteristics. Remember that while origin strongly
-            influences flavor, roast level and brewing method also play
-            important roles in your final cup.
+            Several factors influence a coffee&apos;s taste profile. Altitude
+            affects bean density and complexity - higher grown coffees typically
+            develop more intricate flavors. Soil composition impacts nutrient
+            uptake and flavor development, with volcanic soils often producing
+            bright, clean tastes. Climate conditions during growing and
+            harvesting seasons also play crucial roles in flavor development.
           </p>
         </section>
       </main>
