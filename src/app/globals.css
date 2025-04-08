@@ -1,13 +1,18 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1e1410;
+    /* Dark roasted coffee bean */
+    --foreground: #e6d5c3;
+    /* Creamy latte */
+    --primary: #c87941;
+    /* Rich caramel */
+    --primary-hover: #e09351;
+    /* Lighter caramel */
+    --card-bg: #2a1c16;
+    /* Slightly lighter roasted bean */
+    --text-secondary: #9c8579;
+    /* Milky coffee */
+    --border-color: #483029;
+    /* Medium roast */
 }
 
 html,
@@ -19,9 +24,9 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 * {
@@ -31,12 +36,14 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--primary);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: var(--primary-hover);
+}
+button {
+  font-family: inherit;
 }
