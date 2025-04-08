@@ -1,33 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Coffee Buddy - Your Personal Coffee Guide
+
+Coffee Buddy is an interactive web application designed to help coffee enthusiasts explore and learn about different aspects of coffee. Whether you're a beginner or an experienced coffee lover, this app provides comprehensive knowledge about coffee origins, processing methods, brewing techniques, and flavor profiles.
+
+## Features
+
+- **Knowledge Hub**: Access detailed information about:
+  - Coffee Origins
+  - Processing Methods
+  - Brewing Methods
+  - Flavor Profiles
+  - Roast Types
+  - Milk vs Black Coffee
+
+- **Interactive Learning**: Each section provides in-depth content with:
+  - Detailed explanations
+  - Visual guides
+  - Practical tips
+  - Expert recommendations
+
+## Tech Stack
+
+- [Next.js 14](https://nextjs.org) - React framework
+- TypeScript - For type safety
+- CSS Modules - For component-scoped styling
+- Next.js Image Optimization
+- OpenAI Integration - For personalized recommendations
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file with:
+
+```
+OPENAI_API_KEY=your_api_key_here
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── learn/           # Knowledge base pages
+│   │   ├── origins/
+│   │   ├── processing/
+│   │   ├── brew-methods/
+│   │   ├── flavour-profiles/
+│   │   ├── roasts/
+│   │   └── milk-vs-black/
+│   └── page.tsx         # Home page
+├── components/          # Reusable components
+└── styles/             # Global styles
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this project:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
