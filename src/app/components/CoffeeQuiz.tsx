@@ -63,7 +63,7 @@ const questions: Question[] = [
 export default function CoffeeQuiz() {
   const [state, setState] = useState<QuizState>({
     currentQuestion: 0,
-    answers: [],
+    answers: new Array(questions.length).fill(null),
     isLoading: false,
     recommendation: null,
     isClient: false,
@@ -71,12 +71,16 @@ export default function CoffeeQuiz() {
   });
 
   useEffect(() => {
-    setState((prev) => ({ ...prev, isClient: true }));
+    setState((prev) => ({
+      ...prev,
+      isClient: true,
+      answers: new Array(questions.length).fill(null),
+    }));
   }, []);
 
   const handleAnswer = async (answer: string) => {
     const newAnswers = [...state.answers];
-    newAnswers[state.currentQuestion] = answer; // Update answer at current question index
+    newAnswers[state.currentQuestion] = answer;
 
     if (state.currentQuestion < questions.length - 1) {
       setState((prev) => ({
@@ -85,7 +89,6 @@ export default function CoffeeQuiz() {
         answers: newAnswers,
       }));
     } else {
-      // Last question answered, get recommendation
       setState((prev) => ({ ...prev, answers: newAnswers, isLoading: true }));
 
       try {
@@ -137,7 +140,7 @@ export default function CoffeeQuiz() {
   const handleReset = () => {
     setState({
       currentQuestion: 0,
-      answers: [],
+      answers: new Array(questions.length).fill(null),
       isLoading: false,
       recommendation: null,
       isClient: true,
@@ -145,7 +148,6 @@ export default function CoffeeQuiz() {
     });
   };
 
-  // Don't render anything until we're on the client
   if (!state.isClient) {
     return null;
   }
@@ -169,20 +171,26 @@ export default function CoffeeQuiz() {
             </div>
           </div>
           <h2 className={styles.prompt}>{currentQ.prompt}</h2>
-          <div className={styles.options}>
+          <div className={styles.options} key={state.currentQuestion}>
             {currentQ.options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(option)}
-                className={`${styles.option} ${
-                  state.answers[state.currentQuestion] === option
-                    ? styles.selected
-                    : ""
-                }`}
-                disabled={state.isLoading}
-              >
-                {option}
-              </button>
+              <div key={index} className={styles.optionWrapper}>
+                <input
+                  type="radio"
+                  id={`option-${index}`}
+                  name={`question-${state.currentQuestion}`}
+                  value={option}
+                  checked={state.answers[state.currentQuestion] === option}
+                  onChange={() => handleAnswer(option)}
+                  className={styles.optionInput}
+                  disabled={state.isLoading}
+                />
+                <label
+                  htmlFor={`option-${index}`}
+                  className={styles.optionLabel}
+                >
+                  {option}
+                </label>
+              </div>
             ))}
           </div>
           <div className={styles.navigation}>
@@ -193,7 +201,7 @@ export default function CoffeeQuiz() {
               }`}
               disabled={state.currentQuestion === 0 || state.isLoading}
             >
-              ← Back
+              <span className={styles.backArrow}>&larr;</span>Back
             </button>
             <button
               onClick={handleReset}
