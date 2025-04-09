@@ -59,16 +59,41 @@
     border: 2px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: none;
     color: var(--foreground);
     backdrop-filter: blur(4px);
+    -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
 }
 
-.option:hover:not(:disabled) {
-    background-color: rgba(200, 121, 65, 0.25);
-    border-color: var(--primary);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+/* Desktop-only hover effects */
+@media (hover: hover) {
+    .option:hover:not(:disabled) {
+            background-color: rgba(200, 121, 65, 0.25);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease;
+        }
+        }
+        
+        .option:focus {
+            outline: none;
+        }
+        
+        .option:focus-visible {
+            outline: none;
+        }
+        
+        /* Remove all mobile touch effects */
+        .option:active {
+            -webkit-tap-highlight-color: transparent;
+            background-color: rgba(200, 121, 65, 0.15);
+            transform: none;
+            box-shadow: none;
 }
 
 .option:disabled {
@@ -94,6 +119,25 @@
     transition: all 0.2s ease;
     flex: 1;
     max-width: 200px;
+    -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+    }
+    
+    .navButton:focus {
+        outline: none;
+    }
+    
+    .navButton:focus-visible {
+        outline: none;
+    }
+    
+    .navButton:active {
+        background-color: rgba(200, 121, 65, 0.15) !important;
+        transform: none !important;
+        box-shadow: none !important;
 }
 
 .navButton:hover:not(:disabled) {
@@ -162,6 +206,7 @@
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
 .error {
     text-align: center;
     margin-top: 1rem;
@@ -171,4 +216,27 @@
     background-color: rgba(255, 107, 107, 0.1);
     border-radius: 6px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.selected {
+    background-color: rgba(200, 121, 65, 0.3);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure selected state overrides any touch states on mobile */
+@media (hover: none) {
+    .selected {
+        background-color: rgba(200, 121, 65, 0.3) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .option:active,
+    .option:focus,
+    .option:hover {
+        background-color: rgba(200, 121, 65, 0.15) !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border-color) !important;
+    }
 }

@@ -75,7 +75,8 @@ export default function CoffeeQuiz() {
   }, []);
 
   const handleAnswer = async (answer: string) => {
-    const newAnswers = [...state.answers, answer];
+    const newAnswers = [...state.answers];
+    newAnswers[state.currentQuestion] = answer; // Update answer at current question index
 
     if (state.currentQuestion < questions.length - 1) {
       setState((prev) => ({
@@ -128,7 +129,6 @@ export default function CoffeeQuiz() {
       setState((prev) => ({
         ...prev,
         currentQuestion: prev.currentQuestion - 1,
-        answers: prev.answers.slice(0, -1),
         error: null,
       }));
     }
@@ -174,7 +174,11 @@ export default function CoffeeQuiz() {
               <button
                 key={index}
                 onClick={() => handleAnswer(option)}
-                className={styles.option}
+                className={`${styles.option} ${
+                  state.answers[state.currentQuestion] === option
+                    ? styles.selected
+                    : ""
+                }`}
                 disabled={state.isLoading}
               >
                 {option}
