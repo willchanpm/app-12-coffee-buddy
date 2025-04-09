@@ -4,6 +4,13 @@ Coffee Buddy is an interactive web application designed to help coffee enthusias
 
 ## Features
 
+- **Interactive Coffee Quiz**:
+  - Personalised coffee recommendations based on your preferences
+  - Questions about brewing methods, taste preferences, and drinking habits
+  - AI-powered analysis to suggest the perfect coffee match
+  - Easy-to-use interface with progress tracking
+  - Ability to review and modify your answers
+
 - **Knowledge Hub**: Access detailed information about:
   - Coffee Origins
   - Processing Methods
@@ -23,8 +30,8 @@ Coffee Buddy is an interactive web application designed to help coffee enthusias
 - [Next.js 14](https://nextjs.org) - React framework
 - TypeScript - For type safety
 - CSS Modules - For component-scoped styling
-- Next.js Image Optimization
-- OpenAI Integration - For personalized recommendations
+- Next.js Image Optimisation
+- OpenAI Integration - For personalised coffee recommendations
 
 ## Getting Started
 
