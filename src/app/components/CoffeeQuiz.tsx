@@ -14,6 +14,7 @@ interface QuizState {
   isLoading: boolean;
   recommendation: string | null;
   isClient: boolean;
+  error: string | null;
 }
 
 const questions: Question[] = [
@@ -66,6 +67,7 @@ export default function CoffeeQuiz() {
     isLoading: false,
     recommendation: null,
     isClient: false,
+    error: null,
   });
 
   useEffect(() => {
@@ -86,40 +88,35 @@ export default function CoffeeQuiz() {
       setState((prev) => ({ ...prev, answers: newAnswers, isLoading: true }));
 
       try {
-        const response = await fetch(
-          "https://api.openai.com/v1/chat/completions",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-            },
-            body: JSON.stringify({
-              model: "gpt-3.5-turbo",
-              messages: [
-                {
-                  role: "system",
-                  content: `You are a coffee expert helping someone choose the right coffee beans based on their preferences. Based on the following answers, what kind of coffee should they try? Please recommend bean origin, processing method, roast level, and suggested brew method. Answers: ${questions
-                    .map((q, i) => `${q.prompt} ${newAnswers[i]}`)
-                    .join(", ")}`,
-                },
-              ],
-            }),
-          }
-        );
+        const response = await fetch("/api/coffee-recommendation", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            questions: questions.map((q) => q.prompt),
+            answers: newAnswers,
+          }),
+        });
 
         const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to get recommendation");
+        }
+
         setState((prev) => ({
           ...prev,
           isLoading: false,
-          recommendation: data.choices[0].message.content,
+          recommendation: data.recommendation,
+          error: null,
         }));
       } catch (error) {
         console.error("Error getting recommendation:", error);
         setState((prev) => ({
           ...prev,
           isLoading: false,
-          recommendation:
+          error:
             "Sorry, there was an error getting your recommendation. Please try again.",
         }));
       }
@@ -132,6 +129,7 @@ export default function CoffeeQuiz() {
         ...prev,
         currentQuestion: prev.currentQuestion - 1,
         answers: prev.answers.slice(0, -1),
+        error: null,
       }));
     }
   };
@@ -143,6 +141,7 @@ export default function CoffeeQuiz() {
       isLoading: false,
       recommendation: null,
       isClient: true,
+      error: null,
     });
   };
 
@@ -216,6 +215,8 @@ export default function CoffeeQuiz() {
           Brewing your perfect coffee recommendation...
         </div>
       )}
+
+      {state.error && <div className={styles.error}>{state.error}</div>}
     </div>
   );
 }
