@@ -8,10 +8,10 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Coffee Buddy</h1>
         <p className={styles.description}>Find your perfect coffee match!</p>
-        <CoffeeQuiz />
         <Link href="/learn" className={styles.learnLink}>
-          Want to learn more about coffee?
+          Learn more about coffee
         </Link>
+        <CoffeeQuiz />
       </main>
     </div>
   );
