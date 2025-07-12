@@ -50,8 +50,9 @@ const questions: Question[] = [
     options: ["Sensitive to Acidity", "Enjoy Bright Notes"],
   },
   {
-    prompt: "Do you usually drink one coffee a day, or sip throughout the day?",
-    options: ["One Coffee a Day", "Multiple Throughout Day"],
+    prompt:
+      "How many coffees do you drink per day?",
+    options: ["One Coffee a Day", "More than One Coffee a Day"],
   },
   {
     prompt:

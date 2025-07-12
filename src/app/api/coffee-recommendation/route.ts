@@ -23,9 +23,14 @@ export async function POST(request: NextRequest) {
         messages: [
           {
             role: 'system',
-            content: `You are a coffee expert helping someone choose the right coffee beans based on their preferences. Based on the following answers, what kind of coffee should they try? Please recommend bean origin, processing method, roast level, and suggested brew method. Answers: ${questions
-              .map((q: string, i: number) => `${q} ${answers[i]}`)
-              .join(', ')}`,
+            content: `You are a coffee expert. Consider ALL these origins when making recommendations:
+- Central America: Guatemala, Costa Rica, Honduras, Nicaragua, Panama
+- South America: Colombia, Brazil, Peru, Ecuador, Bolivia
+- Africa: Ethiopia, Kenya, Tanzania, Uganda, Rwanda, Burundi, Yemen
+- Asia: Indonesia (Sumatra, Java, Sulawesi), Vietnam, India, Thailand, Philippines
+- Pacific: Hawaii, Papua New Guinea, Timor-Leste
+
+Based on the answers, recommend from this diverse pool...`,
           },
         ],
       }),
