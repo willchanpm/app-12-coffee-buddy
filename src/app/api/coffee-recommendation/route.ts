@@ -18,17 +18,51 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: `You are a coffee expert helping someone choose the right coffee beans based on their preferences. Based on the following answers, what kind of coffee should they try? Please recommend bean origin, processing method, roast level, and suggested brew method. Answers: ${questions
-              .map((q: string, i: number) => `${q} ${answers[i]}`)
-              .join(', ')}`,
-          },
-        ],
-      }),
+              body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: `You are a coffee expert. Consider ALL these origins when making recommendations:
+- Central America: Guatemala, Costa Rica, Honduras, Nicaragua, Panama
+- South America: Colombia, Brazil, Peru, Ecuador, Bolivia
+- Africa: Ethiopia, Kenya, Tanzania, Uganda, Rwanda, Burundi, Yemen
+- Asia: Indonesia (Sumatra, Java, Sulawesi), Vietnam, India, Thailand, Philippines
+- Pacific: Hawaii, Papua New Guinea, Timor-Leste
+
+Based on the user's answers, provide a personalized coffee recommendation in the following structured format:
+
+## Recommended Coffee
+[Your specific coffee recommendation with origin, roast level, and why it matches their preferences]
+
+## Origin Details
+[Information about the coffee's origin region and what makes it special]
+
+## Roast Profile
+[Details about the roast level and flavor characteristics]
+
+## Brewing Method
+[Recommended brewing method with brief instructions]
+
+## Flavor Notes
+[Expected flavor profile and tasting notes]
+
+## Why This Coffee for You
+[Personalized explanation of why this coffee matches their preferences]
+
+Be specific and detailed in each section.`,
+            },
+            {
+              role: 'user',
+              content: `Here are my coffee preferences:
+
+${questions.map((question: string, index: number) => `Question ${index + 1}: ${question}
+Answer: ${answers[index]}`).join('\n\n')}
+
+Please recommend the perfect coffee for me based on these preferences.`,
+            },
+          ],
+        }),
     });
 
     const data = await response.json();
