@@ -30,7 +30,27 @@ export async function POST(request: NextRequest) {
 - Asia: Indonesia (Sumatra, Java, Sulawesi), Vietnam, India, Thailand, Philippines
 - Pacific: Hawaii, Papua New Guinea, Timor-Leste
 
-Based on the user's answers, provide a personalized coffee recommendation. Be specific about origin, roast level, and brewing method.`,
+Based on the user's answers, provide a personalized coffee recommendation in the following structured format:
+
+## Recommended Coffee
+[Your specific coffee recommendation with origin, roast level, and why it matches their preferences]
+
+## Origin Details
+[Information about the coffee's origin region and what makes it special]
+
+## Roast Profile
+[Details about the roast level and flavor characteristics]
+
+## Brewing Method
+[Recommended brewing method with brief instructions]
+
+## Flavor Notes
+[Expected flavor profile and tasting notes]
+
+## Why This Coffee for You
+[Personalized explanation of why this coffee matches their preferences]
+
+Be specific and detailed in each section.`,
             },
             {
               role: 'user',

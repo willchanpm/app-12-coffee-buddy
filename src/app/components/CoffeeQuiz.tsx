@@ -216,7 +216,26 @@ export default function CoffeeQuiz() {
       ) : (
         <div className={styles.recommendation}>
           <h2>Your Perfect Coffee Match</h2>
-          <p>{state.recommendation}</p>
+          <div className={styles.recommendationContent}>
+            {state.recommendation?.split('\n').map((line, index) => {
+              // Check if this line is a markdown header (starts with ##)
+              // This converts the structured response from the API into proper HTML headers
+              if (line.startsWith('## ')) {
+                const headerText = line.replace('## ', '');
+                return (
+                  <h3 key={index} className={styles.recommendationHeader}>
+                    {headerText}
+                  </h3>
+                );
+              }
+              // Regular paragraph text - only render non-empty lines
+              return line.trim() ? (
+                <p key={index} className={styles.recommendationParagraph}>
+                  {line}
+                </p>
+              ) : null;
+            })}
+          </div>
           <button onClick={handleReset} className={styles.resetButton}>
             Take Quiz Again
           </button>
